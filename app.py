@@ -27,7 +27,7 @@ Please note that the data is collected from various websites through web scrapin
 """)
 '-----'
 st.write('''**Sites used for scrapping**: 
-            1.Physics wallah site for extracting JEE Advanced ranks
+            1.Physics wallah site for extracting JEE Advanced ranks \n
             2.Indian Xpress news site to extract placement data''' )
 def scrape(url):
     arr=[]
