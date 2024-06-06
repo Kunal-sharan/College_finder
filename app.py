@@ -26,6 +26,9 @@ st.write("""
 Please note that the data is collected from various websites through web scraping and the comparison is done using generative AI. Therefore, the results are as accurate as the data from the source websites.
 """)
 '-----'
+st.write('''**Sites used for scrapping**: 
+            1.Physics wallah site for extracting JEE Advanced ranks
+            2.Indian Xpress news site to extract placement data''' )
 def scrape(url):
     arr=[]
     headers = {
