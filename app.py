@@ -113,7 +113,7 @@ def get_the_iits(url):
         continue
     return data
 all_placements_data=[]
-global sorted_items
+sorted_items=[]
 @st.cache_data
 def get_the_iits_links(url):
     headers = {
@@ -266,9 +266,10 @@ def main_2():
         {'header': 'Available IIT options  ',  'items':iits_foru[0]},
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
-    sorted_items = sort_items(original_items, multi_containers=True)
+    sorted_item = sort_items(original_items, multi_containers=True)
+    sortted_items.append(sorted_item)  
     # st.write(type(sorted_items))  
-    if len(sorted_items[1].get("items"))>2:
+    if len(sorted_item[1].get("items"))>2:
       st.error("Only 2 items allowed for comparison ")
      
 
