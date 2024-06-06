@@ -294,6 +294,7 @@ def main_2():
     # st.write(type(sorted_items))  
     if len(sorted_item[1].get("items"))>2:
       st.error("Only 2 items allowed for comparison ")
+    st.write("After putting two colleges click on Show Placement data")    
      
 
 
