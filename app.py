@@ -322,7 +322,7 @@ if but:
     if len(sorted_items)>0:
         for i in range(len(sorted_items[1].get("items")[:2])):
         
-          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[i]}-indian-institute-of-technology-placements"))
+          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
           if len(all_placements_data)>0:
             
             for k in range(len(all_placements_data)):
