@@ -1,0 +1,6 @@
+altair==4.2.2
+beautifulsoup4==4.12.3
+langchain_google_genai==1.0.6
+pandas==2.0.3
+streamlit==1.35.0
+streamlit_sortables==0.2.0
