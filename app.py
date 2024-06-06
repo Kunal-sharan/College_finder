@@ -8,23 +8,24 @@ from langchain_google_genai import GoogleGenerativeAI
 import pandas as pd
 st.set_page_config(layout="wide")
 st.title('College Finder')
-
+'-----'
 # Add a description of the application
 st.write("""
 This application helps you find the best college based on your preferences. 
 It collects rank and cutoff data through web scraping from various websites and uses generative AI to compare the data.
 """)
-
+'------'
 # Add a guide on how to use the application
 st.header('Guide to Use the Application')
 st.write("""
-1. **Enter your JEE Advance rank **: Use the input fields to enter your rank .
+1. **Enter your JEE Advance rank**: Use the input fields to enter your rank .
 2. **View the results**: The application will display a list of colleges that match your preferences. The colleges are ranked based on their cutoff scores and placement data.
 3. **Compare colleges**: You can select two colleges to compare. The application uses generative AI to provide a detailed comparison of the two colleges.
 4. **Make a decision**: Based on the results and comparison, you can make an informed decision about which college to choose.
 
 Please note that the data is collected from various websites through web scraping and the comparison is done using generative AI. Therefore, the results are as accurate as the data from the source websites.
 """)
+'-----'
 def scrape(url):
     arr=[]
     headers = {
