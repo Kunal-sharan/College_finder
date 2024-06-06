@@ -289,7 +289,7 @@ def main_2():
         {'header': 'Available IIT options  ',  'items':iits_foru[0]},
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
-    st.write("After putting two colleges click on Show Placement data")    
+       
     sorted_item = sort_items(original_items, multi_containers=True) 
     sorted_items.append(sorted_item)  
     # st.write(type(sorted_items))  
@@ -388,5 +388,6 @@ def get_AI_help():
             st.error(f"only {len(new_arr)} colleges can't compare")
     elif butt:
         st.error("press 'Show placement data' first")
+st.write("After putting two colleges click on Show Placement data")         
 get_AI_help()            
             
