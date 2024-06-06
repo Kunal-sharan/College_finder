@@ -112,6 +112,7 @@ def get_the_iits(url):
       except:
         continue
     return data
+all_placements_data=[]
 @st.cache_data
 def get_the_iits_links(url):
     headers = {
@@ -221,7 +222,12 @@ def get_all_colleges():
 
 n=get_all_colleges()[0]
 
-
+def check_if_empty(arr):
+    for i in range(len(arr)):
+      for j in range(len(arr[i])):
+        if len(arr[i][1])>0:
+          return True
+    return False
 @st.cache_data
 def final():
   final_data=[]
@@ -284,12 +290,7 @@ def main_2():
       soup = BeautifulSoup(response.text, 'html.parser')
       arr=soup.find_all("table")
       return arr
-  def check_if_empty(arr):
-    for i in range(len(arr)):
-      for j in range(len(arr[i])):
-        if len(arr[i][1])>0:
-          return True
-    return False
+  
   def get_placements_Indian_exp(url):
     para=extract_First(url)
     arr=extract_all_Tables(url)
@@ -311,7 +312,7 @@ def main_2():
     if len(sorted_items[1].get("items"))>2:
       st.error("Only 2 items allowed for comparison ")
     else :
-      all_placements_data=[]
+      
       for i in range(len(sorted_items[1].get("items")[:2])):
 
         all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
@@ -325,18 +326,19 @@ def main_2():
             else:
               for j in range(len(all_placements_data[k][i])):
                 st.dataframe(all_placements_data[k][i][j])
-      butt=st.button("Compare the two based on the placements data")
-  #     if butt:
-  #       st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
-  # # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-  #       if check_if_empty(all_placements_data):
-  #         st.markdown(
-  #             llm.invoke(
-  #                 f'''compare the two colleges using all the given factors decide which one is better {all_placements_data}'''
-  #             )
-  #         )
-  #       else:
-  #         st.error("No data")  
+     
 
 
 main_2()
+butt=st.button("Compare the two based on the placements data")
+  if butt:
+    st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
+# llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
+    if check_if_empty(all_placements_data):
+      st.markdown(
+          llm.invoke(
+              f'''compare the two colleges using all the given factors decide which one is better {all_placements_data}'''
+          )
+      )
+    else:
+      st.error("No data")  
