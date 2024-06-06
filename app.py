@@ -351,13 +351,16 @@ def get_AI_help():
     if butt and but:
         # st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-        if check_if_empty(new_arr[0]):
-          st.markdown(
-              llm.invoke(
-                  f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
+        if len(new_arr[0])<2:
+            if check_if_empty(new_arr[0]):
+              st.markdown(
+                  llm.invoke(
+                      f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
+                  )
               )
-          )
+            else:
+              st.error("No data or press 'Show placement data' first")
         else:
-          st.error("No data or press 'Show placement data' first")  
+            st.error(f"only {len(new_arr)} colleges can't compare")
 get_AI_help()            
             
