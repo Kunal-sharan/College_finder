@@ -227,9 +227,11 @@ n=get_all_colleges()[0]
 
 def check_if_empty(arr):
     for i in range(len(arr)):
-        if len(arr[i][1])>0:
-          return True
-    return False
+        if len(arr[i][1])==0:
+          return False
+        else:
+            continue
+    return True
 @st.cache_data
 def final():
   final_data=[]
@@ -359,7 +361,7 @@ def get_AI_help():
                   )
               )
             else:
-              st.error("No data or press 'Show placement data' first")
+              st.error("No data")
         else:
             st.error(f"only {len(new_arr)} colleges can't compare")
     else:
