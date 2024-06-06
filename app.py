@@ -359,3 +359,5 @@ def get_AI_help():
           )
         else:
           st.error("No data")  
+get_AI_help()            
+            
