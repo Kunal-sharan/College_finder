@@ -153,53 +153,7 @@ def check_elements_in_string(my_array, my_string):
         if element in my_string:
             return i
     return -1
-def create_df_placement(head,data):
-    first=[]
-    for i in range(0,len(data),len(head)):
-      ar=[]
-      for j in range(i,i+len(head)):
-        # print(j)
-        if j<len(data):
-          ar.append(data[j])
-      first.append(ar)
-    df=pd.DataFrame(first,columns=head)
-    return df
 
-def extract_First(url):
-  headers = {
-        "User-Agent": "Guest",  # Access as Guest
-    }
-
-  response = requests.get(url, headers=headers)
-  soup = BeautifulSoup(response.text, 'html.parser')
-  arr=soup.find_all(['p'])[:2]
-  para=""
-  for i in range(len(arr)):
-    para+=arr[i].get_text()+"\n"
-
-  return para
-
-def extract_all_Tables(url):
-  headers = {
-        "User-Agent": "Guest",  # Access as Guest
-    }
-
-  response = requests.get(url, headers=headers)
-  soup = BeautifulSoup(response.text, 'html.parser')
-  arr=soup.find_all("table")
-  return arr
-
-def get_placements_Indian_exp(url):
-    para=extract_First(url)
-    arr=extract_all_Tables(url)
-    new_arr=[]
-    for i in range(len(arr)):
-      new_arr.append(scrape_the_pw(arr[i]))
-    all_df=[]
-    for i in range(len(new_arr)):
-      all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
-    return [para,all_df]
-    
 # ("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")    
 @st.cache_data()
 def get_all_colleges():
@@ -320,8 +274,56 @@ def main_2():
 
 
 main_2()
+def create_df_placement(head,data):
+    first=[]
+    for i in range(0,len(data),len(head)):
+      ar=[]
+      for j in range(i,i+len(head)):
+        # print(j)
+        if j<len(data):
+          ar.append(data[j])
+      first.append(ar)
+    df=pd.DataFrame(first,columns=head)
+    return df
+
+def extract_First(url):
+  headers = {
+        "User-Agent": "Guest",  # Access as Guest
+    }
+
+  response = requests.get(url, headers=headers)
+  soup = BeautifulSoup(response.text, 'html.parser')
+  arr=soup.find_all(['p'])[:2]
+  para=""
+  for i in range(len(arr)):
+    para+=arr[i].get_text()+"\n"
+
+  return para
+
+def extract_all_Tables(url):
+  headers = {
+        "User-Agent": "Guest",  # Access as Guest
+    }
+
+  response = requests.get(url, headers=headers)
+  soup = BeautifulSoup(response.text, 'html.parser')
+  arr=soup.find_all("table")
+  return arr
+
+def get_placements_Indian_exp(url):
+    para=extract_First(url)
+    arr=extract_all_Tables(url)
+    new_arr=[]
+    for i in range(len(arr)):
+      new_arr.append(scrape_the_pw(arr[i]))
+    all_df=[]
+    for i in range(len(new_arr)):
+      all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
+    return [para,all_df]
+    
 but=st.button("Show Placement Data")
 if but:
+    st.write(sorted_items)
     if len(sorted_items)>0:
         for i in range(len(sorted_items[1].get("items")[:2])):
         
