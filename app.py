@@ -326,7 +326,7 @@ but=st.button("Show Placement Data")
 if but:
     all_placements_data=[]
     if len(sorted_items[0])>0:
-        st.write(sorted_items[0][1].get("items"))
+       
         
         for i in range(len(sorted_items[0][1].get("items"))):
         
