@@ -331,8 +331,8 @@ if but:
         for i in range(len(sorted_items[0][1].get("items"))):
         
           all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[i]}-indian-institute-of-technology-placements"))
-          if len(all_placements_data)>0:
-            
+        if len(all_placements_data)>0:
+        
             for k in range(len(all_placements_data)):
               for i in range(len(all_placements_data[k])):
                 if(type(all_placements_data[k][i])==str):
