@@ -254,9 +254,7 @@ if iit_rank:
   iits_foru.append(list(set(d_f["Place"].values.tolist())))
   if not d_f.empty:
     st.dataframe(d_f)
-@st.experimental_fragment
-def main_2():
-  def create_df_placement(head,data):
+ def create_df_placement(head,data):
     first=[]
     for i in range(0,len(data),len(head)):
       ar=[]
@@ -268,31 +266,31 @@ def main_2():
     df=pd.DataFrame(first,columns=head)
     return df
 
-  def extract_First(url):
-      headers = {
-            "User-Agent": "Guest",  # Access as Guest
-        }
+def extract_First(url):
+  headers = {
+        "User-Agent": "Guest",  # Access as Guest
+    }
 
-      response = requests.get(url, headers=headers)
-      soup = BeautifulSoup(response.text, 'html.parser')
-      arr=soup.find_all(['p'])[:2]
-      para=""
-      for i in range(len(arr)):
-        para+=arr[i].get_text()+"\n"
+  response = requests.get(url, headers=headers)
+  soup = BeautifulSoup(response.text, 'html.parser')
+  arr=soup.find_all(['p'])[:2]
+  para=""
+  for i in range(len(arr)):
+    para+=arr[i].get_text()+"\n"
 
-      return para
+  return para
 
-  def extract_all_Tables(url):
-      headers = {
-            "User-Agent": "Guest",  # Access as Guest
-        }
+def extract_all_Tables(url):
+  headers = {
+        "User-Agent": "Guest",  # Access as Guest
+    }
 
-      response = requests.get(url, headers=headers)
-      soup = BeautifulSoup(response.text, 'html.parser')
-      arr=soup.find_all("table")
-      return arr
-  
-  def get_placements_Indian_exp(url):
+  response = requests.get(url, headers=headers)
+  soup = BeautifulSoup(response.text, 'html.parser')
+  arr=soup.find_all("table")
+  return arr
+
+def get_placements_Indian_exp(url):
     para=extract_First(url)
     arr=extract_all_Tables(url)
     new_arr=[]
@@ -302,6 +300,10 @@ def main_2():
     for i in range(len(new_arr)):
       all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
     return [para,all_df]
+
+@st.experimental_fragment
+def main_2():
+ 
 
   if len(iits_foru)>0:
     st.write(("I only have the placements data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai "))
