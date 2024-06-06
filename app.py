@@ -113,6 +113,7 @@ def get_the_iits(url):
         continue
     return data
 all_placements_data=[]
+sorted_items=[]
 @st.cache_data
 def get_the_iits_links(url):
     headers = {
@@ -311,24 +312,23 @@ def main_2():
     sorted_items = sort_items(original_items, multi_containers=True)
     if len(sorted_items[1].get("items"))>2:
       st.error("Only 2 items allowed for comparison ")
-    else :
-      
-      for i in range(len(sorted_items[1].get("items"))):
-
-          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[i]}-indian-institute-of-technology-placements"))
-          if len(all_placements_data)>0:
-            
-            for k in range(len(all_placements_data)):
-              for i in range(len(all_placements_data[k])):
-                if(type(all_placements_data[k][i])==str):
-                  st.write(all_placements_data[k][i])
-                else:
-                  for j in range(len(all_placements_data[k][i])):
-                    st.dataframe(all_placements_data[k][i][j])
      
 
 
 main_2()
+
+for i in range(len(sorted_items[1].get("items")[:2])):
+
+  all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[i]}-indian-institute-of-technology-placements"))
+  if len(all_placements_data)>0:
+    
+    for k in range(len(all_placements_data)):
+      for i in range(len(all_placements_data[k])):
+        if(type(all_placements_data[k][i])==str):
+          st.write(all_placements_data[k][i])
+        else:
+          for j in range(len(all_placements_data[k][i])):
+            st.dataframe(all_placements_data[k][i][j])
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 butt=st.button("Compare the two based on the placements data")
 if butt:
