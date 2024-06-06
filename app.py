@@ -112,7 +112,7 @@ def get_the_iits(url):
       except:
         continue
     return data
-all_placements_data=[]
+
 sorted_items=[]
 @st.cache_data
 def get_the_iits_links(url):
@@ -324,8 +324,10 @@ def get_placements_Indian_exp(url):
     
 but=st.button("Show Placement Data")
 if but:
+    
     if len(sorted_items[0])>0:
         st.write(sorted_items[0][1].get("items"))
+        all_placements_data=[]
         for i in range(len(sorted_items[0][1].get("items"))):
         
           all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[i]}-indian-institute-of-technology-placements"))
@@ -338,8 +340,6 @@ if but:
                 else:
                   for j in range(len(all_placements_data[k][i])):
                     st.dataframe(all_placements_data[k][i][j])
-        sorted_items=[]
-        all_placements_data=[]
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 butt=st.button("Compare the two based on the placements data")
 if butt:
