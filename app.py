@@ -289,13 +289,12 @@ def main_2():
         {'header': 'Available IIT options  ',  'items':iits_foru[0]},
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
-    sorted_item = sort_items(original_items, multi_containers=True)
     st.write("After putting two colleges click on Show Placement data")    
+    sorted_item = sort_items(original_items, multi_containers=True) 
     sorted_items.append(sorted_item)  
     # st.write(type(sorted_items))  
     if len(sorted_item[1].get("items"))>2:
-      st.error("Only 2 items allowed for comparison ")
-    st.write("After putting two colleges click on Show Placement data")    
+      st.error("Only 2 items allowed for comparison ")   
      
 
 
