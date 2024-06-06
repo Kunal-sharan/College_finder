@@ -227,7 +227,6 @@ n=get_all_colleges()[0]
 
 def check_if_empty(arr):
     for i in range(len(arr)):
-      for j in range(len(arr[i])):
         if len(arr[i][1])>0:
           return True
     return False
