@@ -310,6 +310,7 @@ def main_2():
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
     sorted_items = sort_items(original_items, multi_containers=True)
+    st.write(type(sorted_items))  
     if len(sorted_items[1].get("items"))>2:
       st.error("Only 2 items allowed for comparison ")
      
