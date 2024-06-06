@@ -345,7 +345,7 @@ def get_placements_Indian_exp(url):
     for i in range(len(new_arr)):
       all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
     return [para,all_df]
-    
+st.write("After putting two colleges click on Show Placement data")     
 but=st.button("Show Placement Data")
 new_arr=[]
 if but:
@@ -388,6 +388,6 @@ def get_AI_help():
             st.error(f"only {len(new_arr)} colleges can't compare")
     elif butt:
         st.error("press 'Show placement data' first")
-st.write("After putting two colleges click on Show Placement data")         
+        
 get_AI_help()            
             
