@@ -352,7 +352,7 @@ def get_AI_help():
         # st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
         if len(new_arr[0])==2:
-            if check_if_empty(new_arr[0]):
+            if check_if_empty(new_arr[0])!=False:
               st.markdown(
                   llm.invoke(
                       f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
