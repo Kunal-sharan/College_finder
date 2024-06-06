@@ -350,7 +350,8 @@ but=st.button("Show Placement Data")
 new_arr=[]
 if but:
     all_placements_data=[]
-    if len(sorted_items[0])>0:
+    if(len(sorted_items)>0):
+      if len(sorted_items[0])>0:
        
         
         for i in range(len(sorted_items[0][1].get("items"))):
@@ -365,7 +366,7 @@ if but:
                   st.write(all_placements_data[k][i])
                 else:
                   for j in range(len(all_placements_data[k][i])):
-                    st.dataframe(all_placements_data[k][i][j])
+                    st.dataframe(all_placements_data[k][i][j])p
                       
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 
