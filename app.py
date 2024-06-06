@@ -383,7 +383,7 @@ def get_AI_help():
                   )
               )
             else:
-              st.error("No data")
+              st.error("No data plz choose from the given 7 IITs")
         else:
             st.error(f"only {len(new_arr)} colleges can't compare")
     elif butt:
