@@ -27,8 +27,8 @@ Please note that the data is collected from various websites through web scrapin
 """)
 '-----'
 st.markdown('''**Sites used for scrapping**: 
-            1.Physics wallah site for extracting JEE Advanced ranks \n
-            2.Indian Xpress news site to extract placement data''' )
+1.Physics wallah site for extracting JEE Advanced ranks.
+2.Indian Xpress news site to extract placement data''' )
 def scrape(url):
     arr=[]
     headers = {
