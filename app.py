@@ -309,24 +309,23 @@ def main_2():
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
     sorted_items = sort_items(original_items, multi_containers=True)
-    with st.spinner("Pocessing please wait...."):  
-        if len(sorted_items[1].get("items"))>2:
-          st.error("Only 2 items allowed for comparison ")
-        else :
-          
-          for i in range(len(sorted_items[1].get("items")[:2])):
-    
-              all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
-              if len(all_placements_data)>0:
-                c1=st.container(border=True)
-                c2=st.container(border=True)
-                for k in range(len(all_placements_data)):
-                  for i in range(len(all_placements_data[k])):
-                    if(type(all_placements_data[k][i])==str):
-                      st.write(all_placements_data[k][i])
-                    else:
-                      for j in range(len(all_placements_data[k][i])):
-                        st.dataframe(all_placements_data[k][i][j])
+    if len(sorted_items[1].get("items"))>2:
+      st.error("Only 2 items allowed for comparison ")
+    else :
+      
+      for i in range(len(sorted_items[1].get("items"))):
+
+          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[i]}-indian-institute-of-technology-placements"))
+          if len(all_placements_data)>0:
+            c1=st.container(border=True)
+            c2=st.container(border=True)
+            for k in range(len(all_placements_data)):
+              for i in range(len(all_placements_data[k])):
+                if(type(all_placements_data[k][i])==str):
+                  st.write(all_placements_data[k][i])
+                else:
+                  for j in range(len(all_placements_data[k][i])):
+                    st.dataframe(all_placements_data[k][i][j])
      
 
 
