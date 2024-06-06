@@ -241,7 +241,7 @@ arr=[]
 # if b:
   # st.cache_data.clear()
   # st.success("Done")
-st.set_page_config(layout='wide')
+# st.set_page_config(layout='wide')
 iit_rank=st.text_input("Enter your Jee advance rank if your is in in between 21 and 13890 ")
 df=final()
 iits_foru=[]
