@@ -316,17 +316,17 @@ def main_2():
           
           for i in range(len(sorted_items[1].get("items")[:2])):
     
-            all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
-          if len(all_placements_data)>0:
-            c1=st.container(border=True)
-            c2=st.container(border=True)
-            for k in range(len(all_placements_data)):
-              for i in range(len(all_placements_data[k])):
-                if(type(all_placements_data[k][i])==str):
-                  st.write(all_placements_data[k][i])
-                else:
-                  for j in range(len(all_placements_data[k][i])):
-                    st.dataframe(all_placements_data[k][i][j])
+              all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
+              if len(all_placements_data)>0:
+                c1=st.container(border=True)
+                c2=st.container(border=True)
+                for k in range(len(all_placements_data)):
+                  for i in range(len(all_placements_data[k])):
+                    if(type(all_placements_data[k][i])==str):
+                      st.write(all_placements_data[k][i])
+                    else:
+                      for j in range(len(all_placements_data[k][i])):
+                        st.dataframe(all_placements_data[k][i][j])
      
 
 
