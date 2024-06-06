@@ -376,11 +376,11 @@ def get_AI_help():
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
         if len(new_arr[0])==2:
             if check_if_empty(new_arr[0])!=False:
-              st.code(
+              st.write(
                   llm.invoke(
                       f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
                   )
-              ,language='md')
+              )
             else:
               st.error("No data")
         else:
