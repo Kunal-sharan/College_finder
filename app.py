@@ -376,7 +376,7 @@ def get_AI_help():
     if butt and but:
         # st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-        if len(new_arr[0])==2:
+        if len(new_arr)>0 and len(new_arr[0])==2:
             if check_if_empty(new_arr[0])!=False:
               st.write(
                   llm.invoke(
