@@ -324,11 +324,10 @@ def get_placements_Indian_exp(url):
     
 but=st.button("Show Placement Data")
 if but:
-    st.write(sorted_items)
-    if len(sorted_items)>0:
-        for i in range(len(sorted_items[1].get("items")[:2])):
+    if len(sorted_items[0])>0:
+        for i in range(len(sorted_items[0][1].get("items")[:2])):
         
-          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
+          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[:2][i]}-indian-institute-of-technology-placements"))
           if len(all_placements_data)>0:
             
             for k in range(len(all_placements_data)):
