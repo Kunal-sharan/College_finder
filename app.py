@@ -6,6 +6,7 @@ import streamlit as st
 from streamlit_sortables import sort_items
 from langchain_google_genai import GoogleGenerativeAI
 import pandas as pd
+st.set_page_config(layout="wide")
 def scrape(url):
     arr=[]
     headers = {
