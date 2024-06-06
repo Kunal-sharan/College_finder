@@ -155,7 +155,7 @@ def check_elements_in_string(my_array, my_string):
     return -1
 
 # ("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")    
-@st.cache_data()
+@st.cache_data
 def get_all_colleges():
   iits=get_the_iits_links("https://www.education.gov.in/iits")
   net_headings=[]
@@ -323,6 +323,7 @@ def get_placements_Indian_exp(url):
     return [para,all_df]
     
 but=st.button("Show Placement Data")
+new_arr=[]
 if but:
     all_placements_data=[]
     if len(sorted_items[0])>0:
@@ -331,6 +332,7 @@ if but:
         for i in range(len(sorted_items[0][1].get("items"))):
         
           all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[i]}-indian-institute-of-technology-placements"))
+        new_arr.append(all_placements_data)    
         if len(all_placements_data)>0:
         
             for k in range(len(all_placements_data)):
@@ -340,16 +342,20 @@ if but:
                 else:
                   for j in range(len(all_placements_data[k][i])):
                     st.dataframe(all_placements_data[k][i][j])
+                      
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-butt=st.button("Compare the two based on the placements data")
-if butt:
-    st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
-# llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-    if check_if_empty(all_placements_data):
-      st.markdown(
-          llm.invoke(
-              f'''compare the two colleges using all the given factors decide which one is better {all_placements_data}'''
+
+@st.experimental_fragment
+def get_AI_help():
+    butt=st.button("Compare the two based on the placements data")
+    if butt:
+        st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
+    # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
+        if check_if_empty(new_arr[0]):
+          st.markdown(
+              llm.invoke(
+                  f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
+              )
           )
-      )
-    else:
-      st.error("No data")  
+        else:
+          st.error("No data")  
