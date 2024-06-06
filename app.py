@@ -338,7 +338,8 @@ if but:
                 else:
                   for j in range(len(all_placements_data[k][i])):
                     st.dataframe(all_placements_data[k][i][j])
-        sorted_items=[]                      
+        sorted_items=[]
+        all_placements_data=[]
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 butt=st.button("Compare the two based on the placements data")
 if butt:
