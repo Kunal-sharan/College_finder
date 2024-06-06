@@ -113,7 +113,7 @@ def get_the_iits(url):
         continue
     return data
 all_placements_data=[]
-sorted_items=[]
+global sorted_items
 @st.cache_data
 def get_the_iits_links(url):
     headers = {
