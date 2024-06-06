@@ -363,5 +363,7 @@ def get_AI_help():
               st.error("No data or press 'Show placement data' first")
         else:
             st.error(f"only {len(new_arr)} colleges can't compare")
+    else:
+        st.error("press 'Show placement data' first")
 get_AI_help()            
             
