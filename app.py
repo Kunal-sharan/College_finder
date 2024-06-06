@@ -290,6 +290,7 @@ def main_2():
         {'header': 'Compare Any Two based on placements', 'items': []}
     ]
     sorted_item = sort_items(original_items, multi_containers=True)
+    st.write("After putting two colleges click on Show Placement data")    
     sorted_items.append(sorted_item)  
     # st.write(type(sorted_items))  
     if len(sorted_item[1].get("items"))>2:
