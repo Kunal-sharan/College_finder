@@ -326,17 +326,17 @@ def main_2():
               for j in range(len(all_placements_data[k][i])):
                 st.dataframe(all_placements_data[k][i][j])
       butt=st.button("Compare the two based on the placements data")
-      if butt:
-        st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
-  # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-        if check_if_empty(all_placements_data):
-          st.markdown(
-              llm.invoke(
-                  f'''compare the two colleges using all the given factors decide which one is better {all_placements_data}'''
-              )
-          )
-        else:
-          st.error("No data")  
+  #     if butt:
+  #       st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
+  # # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
+  #       if check_if_empty(all_placements_data):
+  #         st.markdown(
+  #             llm.invoke(
+  #                 f'''compare the two colleges using all the given factors decide which one is better {all_placements_data}'''
+  #             )
+  #         )
+  #       else:
+  #         st.error("No data")  
 
 
 main_2()
