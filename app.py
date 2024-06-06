@@ -26,7 +26,7 @@ st.write("""
 Please note that the data is collected from various websites through web scraping and the comparison is done using generative AI. Therefore, the results are as accurate as the data from the source websites.
 """)
 '-----'
-st.write('''**Sites used for scrapping**: 
+st.markdown('''**Sites used for scrapping**: 
             1.Physics wallah site for extracting JEE Advanced ranks \n
             2.Indian Xpress news site to extract placement data''' )
 def scrape(url):
@@ -376,11 +376,11 @@ def get_AI_help():
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
         if len(new_arr[0])==2:
             if check_if_empty(new_arr[0])!=False:
-              st.markdown(
+              st.code(
                   llm.invoke(
                       f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
                   )
-              )
+              ,language='md')
             else:
               st.error("No data")
         else:
