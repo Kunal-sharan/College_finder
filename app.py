@@ -366,7 +366,7 @@ if but:
                   st.write(all_placements_data[k][i])
                 else:
                   for j in range(len(all_placements_data[k][i])):
-                    st.dataframe(all_placements_data[k][i][j])p
+                    st.dataframe(all_placements_data[k][i][j])
                       
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 
