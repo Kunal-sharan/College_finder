@@ -324,10 +324,10 @@ def get_placements_Indian_exp(url):
     
 but=st.button("Show Placement Data")
 if but:
-    
+    all_placements_data=[]
     if len(sorted_items[0])>0:
         st.write(sorted_items[0][1].get("items"))
-        all_placements_data=[]
+        
         for i in range(len(sorted_items[0][1].get("items"))):
         
           all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[i]}-indian-institute-of-technology-placements"))
