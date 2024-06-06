@@ -151,7 +151,7 @@ def check_elements_in_string(my_array, my_string):
         if element in my_string:
             return i
     return -1
-("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")    
+# ("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")    
 @st.cache_data()
 def get_all_colleges():
   iits=get_the_iits_links("https://www.education.gov.in/iits")
