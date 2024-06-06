@@ -261,7 +261,7 @@ def main_2():
  
 
   if len(iits_foru)>0:
-    st.write(("I only have the placements data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai "))
+    st.warning(("I only have the placements data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai "))
     original_items = [
         {'header': 'Available IIT options  ',  'items':iits_foru[0]},
         {'header': 'Compare Any Two based on placements', 'items': []}
