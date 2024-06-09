@@ -345,6 +345,14 @@ def get_placements_Indian_exp(url):
     for i in range(len(new_arr)):
       all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
     return [para,all_df]
+def final_placement_data(arr):
+    new_arr=[]
+    for i in range(len(arr)):
+        new_arr.append([arr[i],get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{arr[i]}-indian-institute-of-technology-placements"))
+    return new_arr
+get_all_placements_data=[]    
+if len(iits_foru)>0:    
+    get_all_placements_data=final_placements_data(iits_foru)    
 st.write("After putting two colleges click on Show Placement data")     
 but=st.button("Show Placement Data")
 new_arr=[]
@@ -355,8 +363,9 @@ if but:
        
         
         for i in range(len(sorted_items[0][1].get("items"))):
-        
-          all_placements_data.append(get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{sorted_items[0][1].get('items')[i]}-indian-institute-of-technology-placements"))
+            for j in range(len(get_all_placements_data[0])):
+                if sorted_items[0][1].get("items")[i] == get_all_placements_data[0][j]:
+                    all_placements_data.append(get_all_placements_data[1][j])
         new_arr.append(all_placements_data)    
         if len(all_placements_data)>0:
         
