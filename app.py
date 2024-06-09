@@ -364,7 +364,7 @@ if but:
        
         
         for i in range(len(sorted_items[0][1].get("items"))):
-            for j in range(len(get_all_placements_data[0])):
+            for j in range(len(get_all_placements_data)):
                 if sorted_items[0][1].get("items")[i] == get_all_placements_data[j][0]:
                     all_placements_data.append(get_all_placements_data[j][1])
         new_arr.append(all_placements_data)
