@@ -348,7 +348,7 @@ def get_placements_Indian_exp(url):
 def final_placement_data(arr):
     new_arr=[]
     for i in range(len(arr)):
-        new_arr.append([arr[i],get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{arr[i]}-indian-institute-of-technology-placements"))
+        new_arr.append([arr[i],get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{arr[i]}-indian-institute-of-technology-placements")])
     return new_arr
 get_all_placements_data=[]    
 if len(iits_foru)>0:    
