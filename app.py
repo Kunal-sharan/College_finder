@@ -347,7 +347,6 @@ def get_placements_Indian_exp(url):
     return [para,all_df]
 def final_placements_data(arr):
     new_arr=[]
-    st.write(arr)
     for i in range(len(arr)):
         new_arr.append([arr[i],get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{arr[i]}-indian-institute-of-technology-placements")])
     return new_arr
@@ -366,8 +365,8 @@ if but:
         
         for i in range(len(sorted_items[0][1].get("items"))):
             for j in range(len(get_all_placements_data[0])):
-                if sorted_items[0][1].get("items")[i] == get_all_placements_data[0][j]:
-                    all_placements_data.append(get_all_placements_data[1][j])
+                if sorted_items[0][1].get("items")[i] == get_all_placements_data[j][0]:
+                    all_placements_data.append(get_all_placements_data[j][1])
         new_arr.append(all_placements_data)
         st.write(all_placements_data)  
         if len(all_placements_data)>0:
