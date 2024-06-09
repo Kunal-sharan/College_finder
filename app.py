@@ -345,6 +345,7 @@ def get_placements_Indian_exp(url):
     for i in range(len(new_arr)):
       all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
     return [para,all_df]
+@st.cache_data    
 def final_placements_data(arr):
     new_arr=[]
     for i in range(len(arr)):
