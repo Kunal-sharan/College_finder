@@ -353,7 +353,7 @@ def final_placements_data(arr):
     return new_arr
 get_all_placements_data=[]    
 if len(iits_foru)>0:    
-    get_all_placements_data=final_placements_data(iits_foru)    
+    get_all_placements_data=final_placements_data(iits_foru[0])    
 st.write("After putting two colleges click on Show Placement data")     
 but=st.button("Show Placement Data")
 new_arr=[]
