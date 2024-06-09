@@ -347,6 +347,7 @@ def get_placements_Indian_exp(url):
     return [para,all_df]
 def final_placements_data(arr):
     new_arr=[]
+    st.write(arr)
     for i in range(len(arr)):
         new_arr.append([arr[i],get_placements_Indian_exp(f"https://education.indianexpress.com/university/iit-{arr[i]}-indian-institute-of-technology-placements")])
     return new_arr
