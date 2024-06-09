@@ -357,6 +357,7 @@ st.write("After putting two colleges click on Show Placement data")
 but=st.button("Show Placement Data")
 new_arr=[]
 if but:
+    st.write(get_all_placements_data)
     all_placements_data=[]
     if(len(sorted_items)>0):
       if len(sorted_items[0])>0:
