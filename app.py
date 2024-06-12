@@ -322,7 +322,7 @@ def extract_First(url):
   para=""
   for i in range(len(arr)):
     para+=arr[i].get_text()+"\n"
-  st.write(para)
+  
   return para
 
 def extract_all_Tables(url):
@@ -337,6 +337,7 @@ def extract_all_Tables(url):
 
 def get_placements_Indian_exp(url):
     para=extract_First(url)
+    st.write(para)
     arr=extract_all_Tables(url)
     new_arr=[]
     for i in range(len(arr)):
