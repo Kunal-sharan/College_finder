@@ -319,7 +319,7 @@ def extract_First(url):
   response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.text, 'html.parser')
   para=soup.find('div',class_="firstParagpraph").get_text()
-  
+  st.write(para)
   return para
 
 def extract_all_Tables(url):
@@ -334,7 +334,6 @@ def extract_all_Tables(url):
 
 def get_placements_Indian_exp(url):
     para=extract_First(url)
-    st.write(para)
     arr=extract_all_Tables(url)
     new_arr=[]
     for i in range(len(arr)):
