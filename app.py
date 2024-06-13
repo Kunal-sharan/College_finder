@@ -383,10 +383,10 @@ llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_A
 @st.experimental_fragment
 def get_AI_help():
     butt=st.button("Compare the two based on the placements data")
-    if butt and but:
+    if but:
         # st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-        if len(new_arr)==2:
+        if len(new_arr)>0:
             st.write(
                   llm.invoke(
                       f'''compare the two colleges using all the given factors decide which one is better {new_arr}'''
