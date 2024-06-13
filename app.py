@@ -357,7 +357,9 @@ if len(iits_foru)>0:
 st.write("After putting two colleges click on Show Placement data")     
 but=st.button("Show Placement Data")
 new_arr=[]
+st.write(get_all_placements_data)
 if but:
+    st.write(get_all_placements_data)
     all_placements_data=[]
     if(len(sorted_items)>0):
       if len(sorted_items[0])>0:
