@@ -370,11 +370,11 @@ if but:
         new_arr.append(all_placements_data) 
         if len(all_placements_data)>0:
             st.write(all_placements_data)
-            # for k in range(len(all_placements_data)):
-            #   for i in range(len(all_placements_data[k])):
-            #       st.write(all_placements_data[k][0])
-            #       for j in range(len(all_placements_data[k][i])):
-            #         st.dataframe(all_placements_data[k][i][j])
+            for k in range(len(all_placements_data)):
+              for i in range(len(all_placements_data[k])):
+                  st.write(all_placements_data[k][0])
+                  for j in range(len(all_placements_data[k][1])):
+                    st.dataframe(all_placements_data[k][1][j])
                       
 llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
 
