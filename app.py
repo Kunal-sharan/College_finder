@@ -373,7 +373,7 @@ if but:
             for k in range(len(all_placements_data)):
                   st.write(f"IIT {all_placements_data[k][0].upper()}")
                   for j in range(len(all_placements_data[k][1])):
-                    if len(all_placements_data[k][1][j])==0:
+                    if all_placements_data[k][1][j].empty:
                         st.write("No Data Available at the moment")
                     else:    
                         st.dataframe(all_placements_data[k][1][j])
