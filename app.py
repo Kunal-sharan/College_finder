@@ -318,10 +318,10 @@ def extract_First(url):
 
   response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.text, 'html.parser')
-  ara=soup.find_all('p')
-  para=""  
-  for i in ara:
-      para+=i.get_text()+"\n"
+  try:  
+      para=soup.find("div",class_="ArticleHTML_htmlContent__bZTN1").get_text()
+  except:
+      para="No data"
   st.write(para)
   return para
 
