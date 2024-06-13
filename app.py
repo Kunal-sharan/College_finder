@@ -357,9 +357,7 @@ if len(iits_foru)>0:
 st.write("After putting two colleges click on Show Placement data")     
 but=st.button("Show Placement Data")
 new_arr=[]
-st.write(get_all_placements_data)
 if but:
-    st.write(get_all_placements_data)
     all_placements_data=[]
     if(len(sorted_items)>0):
       if len(sorted_items[0])>0:
@@ -368,13 +366,13 @@ if but:
         for i in range(len(sorted_items[0][1].get("items"))):
             for j in range(len(get_all_placements_data)):
                 if sorted_items[0][1].get("items")[i] == get_all_placements_data[j][0]:
-                    all_placements_data.append(get_all_placements_data[j][1])
+                    all_placements_data.append([sorted_items[0][1].get("items")[i],get_all_placements_data[j][1]])
         new_arr.append(all_placements_data) 
         if len(all_placements_data)>0:
         
             for k in range(len(all_placements_data)):
               for i in range(len(all_placements_data[k])):
-                  st.write(all_placements_data[k][i])
+                  st.write(all_placements_data[k][0])
                   for j in range(len(all_placements_data[k][i])):
                     st.dataframe(all_placements_data[k][i][j])
                       
