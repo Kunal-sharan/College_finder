@@ -318,10 +318,7 @@ def extract_First(url):
 
   response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.text, 'html.parser')
-  arr=soup.find_all(['p'])
-  para=""
-  for i in range(len(arr)):
-    para+=arr[i].get_text()+"\n"
+  para=soup.find('div',class_="firstParagpraph").get_text()
   
   return para
 
