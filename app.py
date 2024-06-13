@@ -371,7 +371,6 @@ if but:
         if len(all_placements_data)>0:
             st.write(all_placements_data)
             for k in range(len(all_placements_data)):
-              for i in range(len(all_placements_data[k])):
                   st.write(f"IIT {all_placements_data[k][0].upper()}")
                   for j in range(len(all_placements_data[k][1])):
                     st.dataframe(all_placements_data[k][1][j])
