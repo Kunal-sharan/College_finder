@@ -311,19 +311,19 @@ def create_df_placement(head,data):
     df=pd.DataFrame(first,columns=head)
     return df
 
-def extract_First(url):
-  headers = {
-        "User-Agent": "Guest",  # Access as Guest
-    }
+# def extract_First(url):
+#   headers = {
+#         "User-Agent": "Guest",  # Access as Guest
+#     }
 
-  response = requests.get(url, headers=headers)
-  soup = BeautifulSoup(response.text, 'html.parser')
-  try:  
-      para=soup.find("div",class_="ArticleHTML_htmlContent__bZTN1").get_text()
-  except:
-      para="No data"
-  st.write(para)
-  return para
+#   response = requests.get(url, headers=headers)
+#   soup = BeautifulSoup(response.text, 'html.parser')
+#   try:  
+#       para=soup.find("div",class_="ArticleHTML_htmlContent__bZTN1").get_text()
+#   except:
+#       para="No data"
+#   st.write(para)
+#   return para
 
 def extract_all_Tables(url):
   headers = {
@@ -336,7 +336,7 @@ def extract_all_Tables(url):
   return arr
 
 def get_placements_Indian_exp(url):
-    para=extract_First(url)
+    # para=extract_First(url)
     arr=extract_all_Tables(url)
     new_arr=[]
     for i in range(len(arr)):
@@ -344,7 +344,7 @@ def get_placements_Indian_exp(url):
     all_df=[]
     for i in range(len(new_arr)):
       all_df.append(create_df_placement(new_arr[i][0],new_arr[i][1]))
-    return [para,all_df]
+    return all_df
 @st.cache_data    
 def final_placements_data(arr):
     new_arr=[]
@@ -372,9 +372,7 @@ if but:
         
             for k in range(len(all_placements_data)):
               for i in range(len(all_placements_data[k])):
-                if(type(all_placements_data[k][i])==str):
                   st.write(all_placements_data[k][i])
-                else:
                   for j in range(len(all_placements_data[k][i])):
                     st.dataframe(all_placements_data[k][i][j])
                       
