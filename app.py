@@ -372,7 +372,7 @@ if but:
             st.write(all_placements_data)
             for k in range(len(all_placements_data)):
               for i in range(len(all_placements_data[k])):
-                  st.write(all_placements_data[k][0])
+                  st.write(f"IIT {all_placements_data[k][0].upper()}")
                   for j in range(len(all_placements_data[k][1])):
                     st.dataframe(all_placements_data[k][1][j])
                       
@@ -384,19 +384,13 @@ def get_AI_help():
     if butt and but:
         # st.warning("I only have data for IIT Gandhinagar , IIT Guwahati , IIT Hyderabad , IIT Delhi , IIT Ropar , IIT Mandi , IIT Bhilai ")        
     # llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=st.secrets["GOOGLE_AI"])
-        if len(new_arr)>0 and len(new_arr[0])==2:
-            if check_if_empty(new_arr[0])!=False:
-              st.write(
+        if len(new_arr)==2:
+            st.write(
                   llm.invoke(
-                      f'''compare the two colleges using all the given factors decide which one is better {new_arr[0]}'''
+                      f'''compare the two colleges using all the given factors decide which one is better {new_arr}'''
                   )
               )
-            else:
-              st.error("No data plz choose from the given 7 IITs")
-        else:
-            st.error(f"only {len(new_arr)} colleges can't compare")
-    elif butt:
-        st.error("press 'Show placement data' first")
+        
         
 get_AI_help()            
             
